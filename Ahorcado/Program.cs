@@ -110,8 +110,6 @@ switch (nivel){
         break;
 }
 
-
-
 Random rnd = new Random();
 string palabra = palabras[rnd.Next(0, palabras.Length)];
 char[] letrasCorrectas = new char[palabra.Length];
@@ -156,5 +154,3 @@ while (intentos > 0){
 }
 DibujarAhorcado(0);
 Console.WriteLine($"Lo siento, has perdido. La palabra era {palabra}");
-
-
