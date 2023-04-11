@@ -84,9 +84,35 @@ static void DibujarAhorcado(int intentos)
     }
 }
 
-string[] palabras = { "perro", "gato", "elefante", "jirafa", "leon" };
-Random rnd = new Random();
+string[] palabrasFacil = { "perro", "gato", "oso", "pato", "loro" };
+string[] palabrasIntermedio = { "antibiotico", "jirafa", "pelota", "computadora", "teclado" };
+string[] palabrasDificil = { "electroencefalografista ", "otorrinolaringólogo ", "electrocardiograma ", "paralelepípedo ", "mjolnir " };
+string[] palabras = {};
 
+Console.WriteLine("Bienvenido al juego del Ahorcado");
+Console.WriteLine(@"Seleccione un nivel de dificultad:
+                   1. Fácil
+                   2. Intermedio
+                   3. Difícil");
+
+Console.Write("Ingrese un número: ");
+int nivel = int.Parse(Console.ReadLine());
+
+switch (nivel){
+    case 1:
+        palabras = palabrasFacil;
+        break;
+    case 2:
+        palabras = palabrasIntermedio;
+        break;
+    case 3:
+        palabras = palabrasDificil;
+        break;
+}
+
+
+
+Random rnd = new Random();
 string palabra = palabras[rnd.Next(0, palabras.Length)];
 char[] letrasCorrectas = new char[palabra.Length];
 
@@ -96,7 +122,6 @@ for (int i = 0; i < palabra.Length; i++){
 
 int intentos = 6;
 
-Console.WriteLine("Bienvenido al juego del Ahorcado");
 Console.WriteLine($"La palabra tiene {palabra.Length} letras");
 
 while (intentos > 0){
